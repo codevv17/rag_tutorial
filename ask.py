@@ -20,16 +20,21 @@ results = collection.query(
     query_texts=[user_query],
     n_results=4
 )
+print('===========================DOCUMENTS===============================================')
 
 print(results['documents'])
-#print(results['metadatas'])
+print('===============================METADATA===========================================')
+
+print(results['metadatas'])
+print('==========================================================================')
+
 
 client = OpenAI()
 
 system_prompt = """
 You are a helpful assistant. You answer questions about growing vegetables in Florida. 
 But you only answer based on knowledge I'm providing you. You don't use your internal 
-knowledge and you don't make thins up.
+knowledge and you don't make things up.
 If you don't know the answer, just say: I don't know
 --------------------
 The data:

@@ -7,9 +7,7 @@ import chromadb
 DATA_PATH = r"data"
 CHROMA_PATH = r"chroma_db"
 
-# chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
 
-# collection = chroma_client.get_or_create_collection(name="growing_vegetables")
 
 # loading the document
 
@@ -64,12 +62,14 @@ print(f'documents : {documents}')
 print('==========================================================================')
 
 
+chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
+
+collection = chroma_client.get_or_create_collection(name="growing_vegetables")
+
 
 # adding to chromadb
-
-
-# collection.upsert(
-#     documents=documents,
-#     metadatas=metadata,
-#     ids=ids
-# )
+collection.upsert(
+    documents=documents,
+    metadatas=metadata,
+    ids=ids
+)
